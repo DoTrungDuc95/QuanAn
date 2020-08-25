@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Congthuc } from './../../../models/congthuc';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-congthucitem',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./congthucitem.component.css']
 })
 export class CongthucitemComponent implements OnInit {
+  @Input() congthuc: Congthuc;
 
   constructor() { }
 

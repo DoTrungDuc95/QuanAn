@@ -1,5 +1,6 @@
 import { Congthuc } from './../../models/congthuc';
 import { Component, OnInit } from '@angular/core';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-danhsachcongthuc',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./danhsachcongthuc.component.css'],
 })
 export class DanhsachcongthucComponent implements OnInit {
+  soLuongMoiTrang = 1;
+  danhSachHienThiMoiTrang = [];
   danhSachCongThuc: Congthuc[] = [
     new Congthuc(
       'Xúc xích',
@@ -27,5 +30,13 @@ export class DanhsachcongthucComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.danhSachHienThiMoiTrang = this.danhSachCongThuc.slice(0, this.soLuongMoiTrang);
+  }
+
+  onPageChange(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    this.danhSachHienThiMoiTrang = this.danhSachCongThuc.slice(startItem, endItem);
+  }
 }

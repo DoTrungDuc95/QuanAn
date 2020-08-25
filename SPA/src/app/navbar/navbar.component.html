@@ -6,21 +6,20 @@
     <a class="p-2 text-dark" href="#">Cong thuc</a>
     <a class="p-2 text-dark" href="#">Shop</a>
   </nav>
-  <div class="nav-item dropdown">
-    <a
-      class="dropdown-toggle nav-item nav-link"
-      href="#"
-      role="button"
-      data-toggle="dropdown"
-      (click)="onToggle()"
-    >
-      Dropdown link
+  <div class="btn-group" dropdown>
+    <a dropdownToggle type="button" class="dropdown-toggle text-dark"
+            aria-controls="dropdown-basic">
+      Button dropdown <span class="caret"></span>
     </a>
-    <div class="dropdown-menu" [class.show]="toggle">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+        role="menu" aria-labelledby="button-basic">
+      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+      <li class="divider dropdown-divider"></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+      </li>
+    </ul>
   </div>
   <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
 </div>
